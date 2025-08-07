@@ -1,4 +1,5 @@
     import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function CSVtoJSON(){
 
@@ -91,9 +92,9 @@ export function CSVtoJSON(){
 
     return(
         
-        <div className="p-30">
-            {/* <a href="/">home</a> */}
-            <div className="mt-5">
+        <div className="px-30 pb-20 mt-10">
+            <Link to="/" className="text-blue-600 p-1 rounded-md bg-blue-100 text-lg hover:underline hover:text-cyan-700 hover:bg-cyan-100">Home</Link>
+            <div className="mt-20">
                 <div className="font-bold text-3xl text-cyan-800">CSV to JSON</div>
                 <div className="mt-5 text-lg">To get started, paste or upload your data.</div>
             </div>
