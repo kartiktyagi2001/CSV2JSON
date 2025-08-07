@@ -45,6 +45,7 @@ export function CSVtoJSON(){
         reader.readAsText(file);
     }
 
+    //parsing logic
     const handleParse = () =>{
         const rawText = input;
 
@@ -68,7 +69,18 @@ export function CSVtoJSON(){
             const row: Record<string, string> = {};
             headers.forEach((header, i) => {
                 
-                row[header.trim()] = values[i].trim();
+                // row[header.trim()] = values[i].trim();
+
+                let value = values[i].trim();
+
+                // remove surrounding quotes (only if they exist) (skiiped in commented logic)
+                if (value.startsWith('"') && value.endsWith('"')) {
+                value = value.slice(1, -1);
+                }
+
+                row[header.trim()] = value;
+
+
             });
             return row;
         });
